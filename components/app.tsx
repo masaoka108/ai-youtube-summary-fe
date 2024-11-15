@@ -7,8 +7,6 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { extractVideoId, fetchVideoDetails, generateSummary, generateAnswer } from '@/lib/api';
-import { LoadingSpinner } from "@/components/ui/loading-spinner"
-import ReactMarkdown from 'react-markdown';
 import { marked } from 'marked';
 import DOMPurify from 'isomorphic-dompurify';
 
