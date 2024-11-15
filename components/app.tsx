@@ -72,6 +72,7 @@ export default function App() {
   const [videoDetails, setVideoDetails] = useState<VideoDetails | null>(null);
   const [sanitizedHtml, setSanitizedHtml] = useState<string>('');
   const [isClient, setIsClient] = useState(false);
+  const [answerHtml, setAnswerHtml] = useState<{ __html: string }>({ __html: '' });
 
   useEffect(() => {
     setIsClient(true);
@@ -144,6 +145,26 @@ export default function App() {
 
     renderHtml();
   }, [summary, renderMarkdown]);
+
+  const renderMarkdownSync = useCallback(async (markdown: string) => {
+    try {
+      const html = await renderMarkdown(markdown);
+      return { __html: html };
+    } catch (err) {
+      console.error('Markdown rendering error:', err);
+      return { __html: '' };
+    }
+  }, []);
+
+  useEffect(() => {
+    const updateAnswerHtml = async () => {
+      if (answer) {
+        const html = await renderMarkdownSync(answer);
+        setAnswerHtml(html);
+      }
+    };
+    updateAnswerHtml();
+  }, [answer, renderMarkdownSync]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -257,7 +278,7 @@ export default function App() {
                       <h3 className="text-lg font-medium mb-2">回答</h3>
                       <div 
                         className="prose prose-gray max-w-none text-gray-600"
-                        dangerouslySetInnerHTML={renderMarkdown(answer)}
+                        dangerouslySetInnerHTML={answerHtml}
                       />
                     </div>
                   </div>
