@@ -74,7 +74,7 @@ export default function App() {
   const [summary, setSummary] = useState<any>(null)
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
-  const [error, setError] = useState<ErrorState | null>(null);
+  const [error, setError] = useState<string | ErrorState | null>(null);
   const [videoDetails, setVideoDetails] = useState<VideoDetails | null>(null);
   const [sanitizedHtml, setSanitizedHtml] = useState<string>('');
   const [isClient, setIsClient] = useState(false);
