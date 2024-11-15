@@ -4,8 +4,8 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
-// console.log("GEMINI_API_KEY");
-// console.log(GEMINI_API_KEY);
+console.log("GEMINI_API_KEY");
+console.log(GEMINI_API_KEY);
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY!);
 
