@@ -63,8 +63,8 @@ const preprocessText = (text: string) => {
 };
 
 // マークダウンをHTMLに変換する関数
-const renderMarkdown = (text: string) => {
-  const rawHtml = marked(text);
+const renderMarkdown = async (text: string) => {
+  const rawHtml = await marked(text);
   return DOMPurify.sanitize(rawHtml);
 };
 
@@ -139,12 +139,17 @@ export default function App() {
     }
   };
 
+  // useEffectの中で非同期処理を扱う
   useEffect(() => {
-    if (summary?.summary) {
-      const html = renderMarkdown(summary.summary.join('\n'));
-      setSanitizedHtml(html);
-    }
-  }, [summary]);
+    const renderHtml = async () => {
+      if (summary?.summary) {
+        const html = await renderMarkdown(summary.summary.join('\n'));
+        setSanitizedHtml(html);
+      }
+    };
+
+    renderHtml();
+  }, [summary, renderMarkdown]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
