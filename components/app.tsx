@@ -15,12 +15,6 @@ type ErrorState = {
   type: 'url' | 'api' | 'general';
 }
 
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-400"></div>
-  </div>
-);
-
 type VideoSummary = {
   title: string;
   thumbnail: string;
@@ -188,7 +182,6 @@ export default function App() {
               >
                 {loading && isClient ? (
                   <div className="flex items-center justify-center gap-2">
-                    <LoadingSpinner className="w-5 h-5" />
                     <span>まとめを作成中...</span>
                   </div>
                 ) : (
@@ -216,7 +209,6 @@ export default function App() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <LoadingSpinner />
                   </div>
                 )}
               </div>
@@ -247,7 +239,6 @@ export default function App() {
                 >
                   {loading ? (
                     <div className="flex items-center gap-2 justify-center">
-                      <LoadingSpinner className="h-5 w-5 text-white" />
                       <span>回答を生成中...</span>
                     </div>
                   ) : (
