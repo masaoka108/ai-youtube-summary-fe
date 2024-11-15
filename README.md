@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI YouTube 動画まとめアプリ
 
-## Getting Started
+YouTubeの動画内容をAIが要約・解説してくれるWebアプリケーションです。
 
-First, run the development server:
+## 機能
 
-```bash
+- YouTube動画URLから内容を自動要約
+- 要約内容は以下の形式で表示：
+  - 全体の概要
+  - 主要なポイント（箇条書き）
+  - 結論
+- 要約内容に対して質問が可能
+- マークダウン形式での表示対応
+
+## 技術スタック
+
+- **フロントエンド**
+  - Next.js 15.0.3
+  - React 19
+  - TypeScript
+  - Tailwind CSS
+  - shadcn/ui
+
+- **AI/ML**
+  - Google Gemini Pro API
+
+## 必要要件
+
+- Node.js 18.0.0以上
+- Google Cloud Platformのアカウントとプロジェクト
+- Gemini Pro APIのAPIキー
+
+## セットアップ
+
+1. リポジトリのクローン
+bash
+git clone [repository-url]
+cd ai-youtube-summary-fe
+
+
+2. 依存パッケージのインストール
+bash
+npm install
+
+
+3. 環境変数の設定
+bash
+cp .env.example .env.local
+
+
+`.env.local`に以下の環境変数を設定：
+NEXT_PUBLIC_YOUTUBE_API_KEY={your_youtube_api_key}
+NEXT_PUBLIC_GEMINI_API_KEY={your_gemini_api_key}
+
+4. 開発サーバーの起動
+bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+アプリケーションは http://localhost:3000 で起動します。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 使い方
 
-## Learn More
+1. トップページでYouTube動画のURLを入力
+2. 「まとめを実行する」ボタンをクリック
+3. AIが動画の内容を要約
+4. 要約内容に対して質問が可能
+5. 「新しい動画を要約する」で別の動画の要約が可能
 
-To learn more about Next.js, take a look at the following resources:
+## 開発者向け情報
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ビルド
+bash
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### テスト
+bash
+npm run test
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### デプロイ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+デプロイ
+bash
+npm run build
+npm run start
+
+
+## ライセンス
+
+MIT License
+
+## 作者
+
+[Your Name]
+
+## 謝辞
+
+- [Next.js](https://nextjs.org/)
+- [Google Gemini Pro](https://deepmind.google/technologies/gemini/)
+- [shadcn/ui](https://ui.shadcn.com/)

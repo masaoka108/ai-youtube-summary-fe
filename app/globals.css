@@ -2,20 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .markdown-content {
+    @apply space-y-4 text-gray-600;
+  }
+  
+  .markdown-content h1 {
+    @apply text-2xl font-bold text-gray-800 mb-4;
+  }
+  
+  .markdown-content h2 {
+    @apply text-xl font-semibold text-gray-800 mb-3;
+  }
+  
+  .markdown-content h3 {
+    @apply text-lg font-medium text-gray-800 mb-2;
+  }
+  
+  .markdown-content ul {
+    @apply list-disc pl-5 space-y-2;
+  }
+  
+  .markdown-content ol {
+    @apply list-decimal pl-5 space-y-2;
+  }
+  
+  .markdown-content p {
+    @apply leading-relaxed;
+  }
+  
+  .prose {
+    @apply text-base leading-7;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-gray-900;
+  }
+  
+  .prose h1, .prose h2, .prose h3 {
+    @apply font-semibold text-gray-900 mt-8 mb-4;
+  }
+  
+  .prose h2 {
+    @apply text-xl;
+  }
+  
+  .prose h3 {
+    @apply text-lg;
+  }
+  
+  .prose ul {
+    @apply list-disc pl-8 my-6 space-y-2;
+  }
+  
+  .prose ol {
+    @apply list-decimal pl-8 my-6 space-y-2;
+  }
+  
+  .prose li {
+    @apply mb-2;
+  }
+  
+  .prose p {
+    @apply mb-6;
+  }
+  
+  .prose br {
+    @apply content-[''] block my-4;
+  }
+  
+  .prose p + p {
+    @apply mt-6;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
