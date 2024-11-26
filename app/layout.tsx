@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AI Youtube動画 超まとめアプリ",
+  title: "AI Youtube動画 要約アプリ",
   description: "YouTubeの動画内容をAIが要約・解説します",
   icons: {
     icon: '/app_icon.png',

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
-import { Github, Instagram, Twitter, X, Youtube } from 'lucide-react'
+import { Github, Instagram, Twitter, X, Youtube, Facebook } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -176,7 +176,7 @@ export default function App() {
             className="flex items-center gap-2 text-xl font-semibold hover:opacity-80 transition-opacity"
           >
             <Youtube className="h-6 w-6 text-sky-400" />
-            <span>AI Youtube動画 超まとめアプリ</span>
+            <span>AI Youtube動画 要約アプリ</span>
           </button>
         </div>
       </header>
@@ -206,7 +206,7 @@ export default function App() {
                     <span>まとめを作成中...</span>
                   </div>
                 ) : (
-                  'まとめを実行する'
+                  <strong>まとめを実行する</strong>
                 )}
               </Button>
             </form>
@@ -302,21 +302,24 @@ export default function App() {
             <div>
               <h3 className="font-semibold mb-2">お問い合わせ</h3>
               <p>Email: info@makeachange.co.jp</p>
-              <p>Web Site: https://makeachange.co.jp/</p>
+              <p>Web Site: <a href="https://makeachange.co.jp/" target="_blank" rel="noopener noreferrer">https://makeachange.co.jp/</a></p>
               
             </div>
             <div>
               <h3 className="font-semibold mb-2">SNS</h3>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-white">
+                {/* <a href="#" className="hover:text-white">
                   <Github className="h-6 w-6" />
+                </a> */}
+                <a href="https://www.facebook.com/masahiro.okamura.7524" className="hover:text-white" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="h-6 w-6" />
                 </a>
-                <a href="#" className="hover:text-white">
-                  <Twitter className="h-6 w-6" />
+                <a href="https://x.com/masa_oka108" className="hover:text-white" target="_blank">
+                  <X className="h-6 w-6" />
                 </a>
-                <a href="#" className="hover:text-white">
+                {/* <a href="#" className="hover:text-white">
                   <Instagram className="h-6 w-6" />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
